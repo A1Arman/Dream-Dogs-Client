@@ -1,18 +1,17 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: "Open Sans",
     sans-serif;
     font-size: 20px;
     color: #444;
     text-align: center;
     line-height: 1.5;
+    min-width: 320px;
   }
-  
+
   header {
     padding: 45px 15px;
   }
@@ -36,4 +35,24 @@ body {
     margin-top: 15px;
   }
   
+  form {
+    text-align: left;
+  }
+  
+  input, textarea {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  input[type="number"] {
+    width: 50px;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+  }
   

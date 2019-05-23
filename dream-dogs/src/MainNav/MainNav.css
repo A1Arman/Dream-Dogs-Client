@@ -1,12 +1,39 @@
 nav {
-  padding: 1% 0;
-  background-color: #aaa;
-}
-
-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  #title {
+    float: left;
+  }
+
+  #title a:hover {
+    background-color: rgb(13, 114, 0);
+  }
