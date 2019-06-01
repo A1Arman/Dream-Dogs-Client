@@ -8,7 +8,7 @@ function MainNav() {
             <ul>
                 <li id='title'><Link to='/'>Dream Dogs</Link></li>
                 <li><Link to='/posts'>Demo</Link></li>
-                <li><a href="#signup">Sign Up</a></li>
+                <li><a href="#signup_form">Sign Up</a></li>
             </ul>            
         </nav>
     )

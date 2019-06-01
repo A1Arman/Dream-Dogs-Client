@@ -1,23 +1,23 @@
 import React from 'react';
 
-function SignUpForm() {
+function SignUpForm(props) {
     return (
         <section>
         <header>
             <h3>Find Your Dream Dog Today</h3>
         </header>
-        <form className='signup-form' id='signup'>
+        <form className='signup_form' id='signup_form' onSubmit={props.addUser}>
             <div>
-              <label htmlFor="first-name">First name</label>
-              <input placeholder='First Name' type="text" name='first-name' id='first-name' />
+              <label htmlFor="first_name">First name</label>
+              <input placeholder='First Name' type="text" name='first_name' id='first-name' />
             </div>
             <div>
-              <label htmlFor="last-name">Last name</label>
-              <input type="text" name='last-name' id='last-name' placeholder='Last Name' />
+              <label htmlFor="last_name">Last name</label>
+              <input type="text" name='last_name' id='last-name' placeholder='Last Name' />
             </div>
             <div>
-              <label htmlFor="username">Email</label>
-              <input type="text" name='username' id='username' />
+              <label htmlFor="email">Email</label>
+              <input type="text" name='email' id='email' />
             </div>
             <button type='submit'>Sign Up</button>
         </form>

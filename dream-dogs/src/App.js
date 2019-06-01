@@ -77,6 +77,39 @@ class App extends Component {
 
   }
 
+  handleUserSubmit = e => {
+    e.preventDefault();
+
+    const user = {
+      first_name: e.target.first_name.value,
+      last_name: e.target.last_name.value,
+      email: e.target.email.value
+    }
+
+    fetch(`http://localhost:8000/api/users`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        const form = document.getElementById('signup_form');
+        form.reset();
+      })
+      .catch(error => {
+        alert(`Something went wrong: ${error.message}`)
+      })
+  }
+
   addPost = post => {
     this.setState({
       posts: [...this.state.posts, post]
@@ -97,7 +130,7 @@ class App extends Component {
         <>
         {this.state.posts.length > 0 && 
           <DreamDogsProvider value={contextVal}>
-            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/' render={(props) => <LandingPage {...props} addUser={(event) => this.handleUserSubmit(event)}/>} />
           </DreamDogsProvider>
         } 
           <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />
