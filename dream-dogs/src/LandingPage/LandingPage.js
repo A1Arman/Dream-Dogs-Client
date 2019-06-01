@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import Spotlight from '../Spotlight/Spotlight';
 import SignUpForm from '../LandingPageForm/SignUpForm';
 import './LandingPage.css';
@@ -8,9 +9,10 @@ class LandingPage extends Component {
         return (
         <>
         <main role="main">
-            <header role="banner">
-                <h1>Dream Dogs</h1>
-                <h2>Find Your Dream Dog.</h2>
+            <header role="banner" className='landing-header'>
+                <h1 id="landing-title">Dream Dogs</h1>
+                <h2 id="phrase">Find Your Dream Dog.</h2>
+                <Link to='/posts'><button className='btn'>Demo App</button></Link>
             </header>
             <section>
                 <header>

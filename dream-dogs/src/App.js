@@ -6,6 +6,10 @@ import PostsHome from './PostsHome/PostsHome';
 import DemoNav from './DemoNav/DemoNav';
 import Post from './Post/Post'
 import AddPostNav from './AddPostNav/AddPostNav';
+import config from './config';
+import {DreamDogsProvider} from './DreamDogsContext';
+
+const {API_BASE_URL} = config
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +18,75 @@ class App extends Component {
       posts: []
     }
   }
+
+  componentDidMount() {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    fetch(`${API_BASE_URL}/posts`, options)
+      .then(res => {
+        if(res.ok) {
+         return res.json();
+        }
+        else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .then(data => {
+        this.setState({posts: data})
+      })
+  }
+
+  handleSubmit = e => {
+    console.log('ran')
+    e.preventDefault();
+    const post = {
+      dog_name: e.target.dog_name.value,
+      email: e.target.owner_email.value,
+      birthdate: e.target.dog_bday.value,
+      breed: e.target.breed.value,
+      lifestyle: e.target.lifestyle.value
+    }
+
+    fetch(`${API_BASE_URL}/posts`, {
+      method: "POST",
+      body: JSON.stringify(post),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then(post => {
+        this.addPost(post);
+        console.log(this.props.history.goBack)
+      })
+      .catch(error => {
+        alert(`something went wrong: ${error.message}`)
+      })
+
+  }
+
+  addPost = post => {
+    this.setState({
+      posts: [...this.state.posts, post]
+    })
+  }
+
   render() {
+    const contextVal = {
+      posts: this.state.posts,
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -22,11 +94,15 @@ class App extends Component {
           <Route exact path='/posts' component={DemoNav} />
           <Route exact path='/addPost' component={AddPostNav}/>
         </header>
-        <main>
-          <Route exact path='/' component={LandingPage} />
-          <Route exact path='/posts' component={PostsHome} />
-          <Route exact path='/addPost' component={Post}/>
-        </main>
+        <>
+        {this.state.posts.length > 0 && 
+          <DreamDogsProvider value={contextVal}>
+            <Route exact path='/' component={LandingPage} />
+          </DreamDogsProvider>
+        } 
+          <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />
+          <Route exact path='/addPost' render={(props) => <Post {...props} addPost={(event) => this.handleSubmit(event)} />}/>
+        </>
       </div>
     );
   }
