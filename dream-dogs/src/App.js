@@ -37,6 +37,7 @@ class App extends Component {
         }
       })
       .then(data => {
+        console.log(data)
         this.setState({posts: data})
       })
   }
@@ -86,7 +87,7 @@ class App extends Component {
       email: e.target.email.value
     }
 
-    fetch(`http://localhost:8000/api/users`, {
+    fetch(`${API_BASE_URL}/users`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
