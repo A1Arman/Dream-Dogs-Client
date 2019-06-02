@@ -7,7 +7,7 @@ function Post(props){
                 <h1>New Post</h1>
             </header>
             <section>
-                <form id="record-dream" onSubmit={props.addPost}>
+                <form id="post-form" onSubmit={props.addPost}>
                     <div className="form-section">
                         <label htmlFor="dog_name">Dog Name</label>
                         <input type="text" name="dog_name" placeholder="Jax" required />

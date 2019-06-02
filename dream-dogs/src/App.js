@@ -70,7 +70,8 @@ class App extends Component {
       })
       .then(post => {
         this.addPost(post);
-        console.log(this.props.history.goBack)
+        const form = document.getElementById('post-form');
+        form.reset();
       })
       .catch(error => {
         alert(`something went wrong: ${error.message}`)
