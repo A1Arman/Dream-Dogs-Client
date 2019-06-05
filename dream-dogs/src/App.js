@@ -11,8 +11,7 @@ import {DreamDogsProvider} from './DreamDogsContext';
 import MyPost from './components/MyPost/MyPost';
 import LoginForm from './components/LoginForm/LoginForm';
 import TokenService from './services/token-service';
-import PrivateRoute from './components/Utils/PrivateRoute';
-import PublicOnlyRoute from './components/Utils/PublicOnlyRoute';
+
 
 const {API_BASE_URL} = config
 
@@ -158,6 +157,11 @@ class App extends Component {
     
     login_email.value = ''
     login_password.value = ''
+
+  }
+
+  handleLogout = () => {
+    TokenService.clearAuthToken()
   }
 
   addPost = post => {
@@ -174,7 +178,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Route exact path='/' component={MainNav} />
-          <Route exact path='/posts' component={DemoNav} />
+          <Route exact path='/posts' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>}/> 
           <Route exact path='/myPost' component={DemoNav} />
           <Route exact path='/login' component={DemoNav} />
           <Route exact path='/addPost' component={AddPostNav}/>
@@ -183,12 +187,12 @@ class App extends Component {
           <DreamDogsProvider value={contextVal}>
             <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)}/>} />
             {this.state.posts.length > 0 &&
-              <PrivateRoute exact path='/myPost' render={(props) => <MyPost {...props} posts={this.state.posts} deleteUser={post_id => this.handleDeletePost(post_id)} />} />
+              <Route exact path='/myPost' render={(props) => <MyPost {...props} posts={this.state.posts} deleteUser={post_id => this.handleDeletePost(post_id)} />} />
             }
-            <PublicOnlyRoute exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => this.loginUser(event)} />} />
+            <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => this.loginUser(event)} />} />
           </DreamDogsProvider>
           <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />
-          <PrivateRoute exact path='/addPost' render={(props) => <Post {...props} addPost={(event) => this.handleSubmit(event)} />}/>
+          <Route exact path='/addPost' render={(props) => <Post {...props} addPost={(event) => this.handleSubmit(event)} />}/>
         </>
       </div>
     );
