@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Spotlight from '../Spotlight/Spotlight';
 import SignUpForm from '../LandingPageForm/SignUpForm';
 import './LandingPage.css';
+import TokenService from '../../services/token-service';
 
 function LandingPage(props) {
         return (
@@ -19,8 +20,16 @@ function LandingPage(props) {
                     </header>
                     <p>Dream dogs helps owners struggling to provide for their dogs to find a safe new home. Owners can create posts and also include a description of the dog, and the lifestyle needs of the dog.</p>
                 </section>
-                <Spotlight />
-                <SignUpForm addUser={props.addUser}/>
+                {props.posts.length > 0 &&
+                    <Spotlight />
+                }
+                {!TokenService.hasAuthToken() ?
+                    <SignUpForm addUser={props.addUser}/> :
+                    <section>
+                    <h3>Welcome back!</h3>
+                    </section>    
+                }
+                
             </main>
             </>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DreamDogsConsumer } from '../DreamDogsContext';
+import { DreamDogsConsumer } from '../../DreamDogsContext';
 
 function Spotlight() {
     return (

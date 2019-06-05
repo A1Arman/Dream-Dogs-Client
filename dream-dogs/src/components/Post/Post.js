@@ -18,7 +18,7 @@ function Post(props){
                     </div>
                     <div className="form-section">
                         <label htmlFor="breed">Breed</label>
-                        <input type="text" name="breed" placeholder="maltipoo" required />
+                        <input type="text" name="breed" placeholder="Maltipoo" required />
                     </div>
                     <div className="hours-slept-container" className="form-section">
                         <label htmlFor="dog_bday">Birthdate</label>
