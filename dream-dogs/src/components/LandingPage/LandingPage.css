@@ -3,9 +3,8 @@
     box-sizing: border-box;
 }
 
+
 body {
-    font-family: "Open Sans",
-    sans-serif;
     font-size: 20px;
     color: #444;
     line-height: 1.5;
@@ -50,6 +49,7 @@ body {
 
   .landing-header {
     height: 75vh;
+    margin-top: 1.5rem;
     background-image: linear-gradient(
         to right bottom, 
         rgba(6, 181, 250, 0.8), 

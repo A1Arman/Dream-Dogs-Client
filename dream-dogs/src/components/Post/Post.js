@@ -1,13 +1,14 @@
 import React from 'react';
+import './Post.css';
 
 function Post(props){
         return (
             <main>
             <header>
-                <h1>New Post</h1>
+                <h1 className='post-title'>New Post</h1>
             </header>
-            <section>
-                <form id="post-form" onSubmit={props.addPost}>
+            <section className='post-form-section'>
+                <form id="post-form"  className='post-form' onSubmit={props.addPost}>
                     <div className="form-section">
                         <label htmlFor="dog_name">Dog Name</label>
                         <input type="text" name="dog_name" placeholder="Jax" required />
@@ -20,7 +21,7 @@ function Post(props){
                         <label htmlFor="breed">Breed</label>
                         <input type="text" name="breed" placeholder="Maltipoo" required />
                     </div>
-                    <div className="hours-slept-container" className="form-section">
+                    <div className="form-section">
                         <label htmlFor="dog_bday">Birthdate</label>
                         <input type="date" name="dog_bday" />
                     </div>
@@ -28,8 +29,8 @@ function Post(props){
                         <label htmlFor="lifestyle">Dog Lifestyle</label>
                         <textarea name="lifestyle"rows="15" placeholder="Please enter a description of your dogs needs and lifestyle"   required></textarea>
                     </div>
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
+                    <button type="submit" className="sub-btn">Submit</button>
+                    <button type="reset" className="res-btn">Reset</button>
                 </form>
                 </section>
             </main>

@@ -2,7 +2,8 @@ main {
     padding-top: 1rem;
 }
 
-.sub-btn {
+.sub-btn,
+.res-btn {
     background-color: #fff;
     color: #777;
     margin-top: 15px;
@@ -14,56 +15,57 @@ main {
     border-radius: 100px;
 }
 
-.sub-btn:hover {
+.sub-btn:hover, .res-btn:hover {
     cursor: pointer;
     transform: translateY(-2.5px);
     box-shadow: 0 5px 15px rgba(0,0,0,.3);
 }
 
-.sub-btn:active {
+.sub-btn:active, .res-btn:hover {
     transform: translateY(-1px);
 }
 
-.signup_form {
+.update-user-form {
     padding: 1rem;
 }
 
-.signup_form label, .signup_form input {
+.update-user-form label, .update-user-form input {
     display: block;
     width: 100%;
     text-align: start;
     margin-top: 0.5rem;
 }
 
-.signup_form input {
+.update-user-form input {
     border: 1px solid #ccc;
     padding: 0.2rem 0.5rem;
     font: inherit;
 }
 
-.signup_form input:focus {
+.update-user-form input:focus {
     outline: none;
     background: rgb(186, 229, 243);
     border-color: rgb(4, 127, 168);
 }
 
-.signup_form label {
+.update-user-form label {
     font-weight: bold;
 }
 
-.signup-title {
+
+.update-user-section {
+    padding: 5px 75px;
+}
+
+.update-user-title {
     text-align: center;
     font-size: 1.75rem;
 }
 
-.signup_form button[type="submit"] {
-    display: block;
+.update-user-form button[type="submit"],
+.update-user-form button[type="reset"] {
+    display: inline-block;
     margin-top: 1rem;
-}
-
-.signup_form :invalid {
-    border-color: red;
-    background: #faacac;
 }
 
 
