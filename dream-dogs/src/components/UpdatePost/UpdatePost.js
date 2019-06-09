@@ -24,10 +24,6 @@ function UpdatePost(props) {
                             <input type="text" name="breed" defaultValue={post[0].breed} required />
                         </div>
                         <div className="form-section">
-                            <label htmlFor="birthdate">Birthdate</label>
-                            <input type="date" name="birthdate" defaultValue={post[0].birthdate} />
-                        </div>
-                        <div className="form-section">
                             <label htmlFor="lifestyle">Dog Lifestyle</label>
                             <textarea name="lifestyle"rows="15" placeholder="Please enter a description of your dogs needs and lifestyle"  defaultValue={post[0].lifestyle} required></textarea>
                         </div>

@@ -14,6 +14,7 @@ import TokenService from './services/token-service';
 import UpdatePost from './components/UpdatePost/UpdatePost';
 import Profile from './components/Profile/Profile';
 import UpdateUser from './components/UpdateUser/UpdateUser';
+import AuthApiService from './services/auth-api-service';
 
 const {API_BASE_URL} = config
 
@@ -35,7 +36,7 @@ class App extends Component {
       }
     };
 
-    fetch(`http://localhost:8000/api/posts`, options)
+    fetch(`${API_BASE_URL}/posts`, options)
       .then(res => {
         if(res.ok) {
          return res.json();
@@ -64,7 +65,7 @@ class App extends Component {
         'Authorization': `bearer ${TokenService.getAuthToken()}`
       }
     }
-    fetch(`http://localhost:8000/api/posts/myPost`, options)
+    fetch(`${API_BASE_URL}/posts/myPost`, options)
       .then(res => {
         if (res.ok) {
           console.log('ok')
@@ -92,7 +93,7 @@ class App extends Component {
       lifestyle: e.target.lifestyle.value
     }
 
-    fetch(`http://localhost:8000/api/posts`, {
+    fetch(`${API_BASE_URL}/posts`, {
       method: "POST",
       body: JSON.stringify(post),
       headers: {
@@ -136,22 +137,8 @@ class App extends Component {
       alert('Password fields do not match')
     }
 
-    fetch(`http://localhost:8000/api/users`, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(error => {
-            throw error;
-          });
-        }
-        return res.json();
-      })
-      .then(data => {
+    AuthApiService.postUser(user)
+      .then(user => {
         const form = document.getElementById('signup_form');
         form.reset();
       })
@@ -161,7 +148,7 @@ class App extends Component {
   }
 
   handleDeletePost = post_id => {
-    fetch(`http://localhost:8000/api/posts/${post_id}`,{
+    fetch(`${API_BASE_URL}/posts/${post_id}`,{
       method: "DELETE",
       headers: {
         'Authorization': `bearer ${TokenService.getAuthToken()}`
@@ -185,7 +172,7 @@ class App extends Component {
   }
 
   handleDeleteUser = user_id => {
-    fetch(`http://localhost:8000/api/users/user`, {
+    fetch(`${API_BASE_URL}/users/user`, {
       method: "DELETE",
       headers: {
         'Authorization': `bearer ${TokenService.getAuthToken()}`
@@ -208,20 +195,23 @@ class App extends Component {
 
   loginUser = ev => {
     ev.preventDefault();
-
-
     const { login_email, login_password } = ev.target
-    
-    TokenService.saveAuthToken(
-      TokenService.makeBasicAuthToken(login_email.value, login_password.value)
-    )
 
-    this.setState({loggedIn: true})
-    this.getPost();
-
-    login_email.value = ''
-    login_password.value = ''
-    window.location.href ='/posts'
+    AuthApiService.postLogin({
+      email: login_email.value,
+      password: login_password.value
+    })
+      .then(res => {
+          login_email.value = ''
+          login_password.value = ''
+          TokenService.saveAuthToken(res.authToken);
+          this.setState({loggedIn: true});
+          this.getPost();
+          window.location.href ='/posts'
+      })
+      .catch(err => {
+        throw err;
+      })
   }
 
   handleUpdate = (post_id, e) => {
@@ -231,11 +221,10 @@ class App extends Component {
       dog_name: e.target.dog_name.value,
       breed: e.target.breed.value,
       email: e.target.owner_email.value,
-      birthdate: e.target.birthdate.value,
       lifestyle: e.target.lifestyle.value
     }
 
-    fetch(`http://localhost:8000/api/posts/${post_id}`, {
+    fetch(`${API_BASE_URL}/posts/${post_id}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedPost),
       headers: {
@@ -290,7 +279,7 @@ class App extends Component {
             <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)}/>} />
             <Route exact path='/myPost' render={(props) => <MyPost {...props} setId={(post_id) => this.setPostId(post_id)}handleDeletePost={post_id => this.handleDeletePost(post_id)} />} />
             <Route exact path='/edit' render={(props) => <UpdatePost {...props} posts={this.state.posts} postId={this.state.post_id} updatePost={(e) => this.handleUpdate(this.state.post_id, e)}/>} />
-            <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => (this.loginUser(event), this.getPost(event))} />} />
+            <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => (this.loginUser(event))} />} />
           </DreamDogsProvider>
           <Route exact path='/editProfile' component={UpdateUser} />
           <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />

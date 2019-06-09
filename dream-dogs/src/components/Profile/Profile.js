@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import config from '../../config';
 import TokenService from '../../services/token-service';
+
+const { API_BASE_URL } = config;
 
 class Profile extends Component {
     constructor(props) {
@@ -19,7 +22,7 @@ class Profile extends Component {
               }
             }
         
-            fetch(`http://localhost:8000/api/users/user`, options)
+            fetch(`${API_BASE_URL}/users/user`, options)
               .then(res => {
                 if (res.ok) {
                   return res.json();

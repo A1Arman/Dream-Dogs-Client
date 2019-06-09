@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import config from '../../config';
 import TokenService from '../../services/token-service';
 import './MyPost.css';
 
+const { API_BASE_URL } = config;
 
 class MyPost extends Component {
     constructor(props) {
@@ -20,7 +22,7 @@ class MyPost extends Component {
             'Authorization': `bearer ${TokenService.getAuthToken()}`
           }
         }
-        fetch(`http://localhost:8000/api/posts/myPost`, options)
+        fetch(`${API_BASE_URL}/posts/myPost`, options)
           .then(res => {
             if (res.ok) {
               return res.json();

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
+import config from '../../config';
 import './UpdateUser.css';
+
+const {API_BASE_URL} = config
 
 class UpdateUser extends Component {
     constructor(props) {
@@ -19,7 +22,7 @@ class UpdateUser extends Component {
               }
             }
         
-            fetch(`http://localhost:8000/api/users/user`, options)
+            fetch(`${API_BASE_URL}/users/user`, options)
               .then(res => {
                 if (res.ok) {
                   return res.json();
@@ -44,10 +47,9 @@ class UpdateUser extends Component {
             first_name: e.target.first_name.value,
             last_name: e.target.last_name.value,
             email: e.target.email.value,
-            password: e.target.password.value
         }
 
-        fetch(`http://localhost:8000/api/users/user`, {
+        fetch(`${API_BASE_URL}/users/user`, {
             method: 'PATCH',
             body: JSON.stringify(inputVal),
             headers: {
@@ -87,10 +89,6 @@ class UpdateUser extends Component {
                             <div className="form-section">
                                 <label htmlFor="email">Email</label>
                                 <input type="email" name="email" id="email" defaultValue={this.state.users.email} required />
-                            </div>
-                            <div className="form-section">
-                                <label htmlFor="password">Password</label>
-                                <input type="password" name="password" id="password"  minLength='8' defaultValue={this.state.users.password} required />
                             </div>
                             <button type="submit" className='sub-btn'>Submit</button>
                             <button type="reset" className='res-btn'>Reset</button>
