@@ -5,16 +5,6 @@ import './MainNav.css';
 import logo from '../../images/dog.svg';
 
 function MainNav() {
-    // return (
-    //     // <nav role="navigation" className='topnav' id='myTopnav'>
-    //     //     <ul>
-    //     //         <li id='title'><Link to='/'>Dream Dogs</Link></li>
-    //     //         <li id='icon'><img src={logo} alt='dream dogs icon/logo'/></li>
-    //     //         <li><Link to='/posts'>Demo</Link></li>
-    //     //         <li><a href="#signup_form">Sign Up</a></li>
-    //     //     </ul>           
-    //     // </nav>
-    // )
     return (
         <>
             <Link to='/'><img src={logo} alt='dream dogs icon/logo'/></Link>
