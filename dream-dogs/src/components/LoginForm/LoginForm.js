@@ -15,6 +15,7 @@ function LoginForm(props) {
                     <input type='password' name='password' id='login_password' />
                 </div>
                 <button type='submit' className='sub-btn'>Log in</button>
+                {props.error ? <h4>Incorrect Email or Password</h4> : <></>}
             </section>   
         </form>
     )

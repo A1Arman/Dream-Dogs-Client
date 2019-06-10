@@ -24,7 +24,9 @@ class App extends Component {
     this.state = {
       posts: [],
       post_id: null,
-      loggedIn: false
+      loggedIn: false,
+      logInError: null,
+      signupError: null
     }
   }
 
@@ -139,11 +141,15 @@ class App extends Component {
 
     AuthApiService.postUser(user)
       .then(user => {
-        const form = document.getElementById('signup_form');
-        form.reset();
+        if (user) {
+          const form = document.getElementById('signup_form');
+          form.reset();
+        } else {
+          this.setState({signUpError: user.error})
+        }  
       })
       .catch(error => {
-        alert(`Something went wrong: ${error.message}`)
+        this.setState({signupError: error})
       })
   }
 
@@ -202,15 +208,15 @@ class App extends Component {
       password: login_password.value
     })
       .then(res => {
-          login_email.value = ''
-          login_password.value = ''
-          TokenService.saveAuthToken(res.authToken);
-          this.setState({loggedIn: true});
-          this.getPost();
-          window.location.href ='/posts'
+            login_email.value = ''
+            login_password.value = ''
+            TokenService.saveAuthToken(res.authToken);
+            this.setState({loggedIn: true});
+            this.getPost();
+            window.location.href ='/posts'
       })
       .catch(err => {
-        throw err;
+        this.setState({logInError: err})
       })
   }
 
@@ -276,10 +282,10 @@ class App extends Component {
         </header>
         <>
           <DreamDogsProvider value={contextVal}>
-            <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)}/>} />
-            <Route exact path='/myPost' render={(props) => <MyPost {...props} setId={(post_id) => this.setPostId(post_id)}handleDeletePost={post_id => this.handleDeletePost(post_id)} />} />
+            <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)} signupError={this.state.signUpError} />} />
+            <Route exact path='/myPost' render={(props) => <MyPost {...props} setId={(post_id) => this.setPostId(post_id)} handleDeletePost={post_id => this.handleDeletePost(post_id)} />} />
             <Route exact path='/edit' render={(props) => <UpdatePost {...props} posts={this.state.posts} postId={this.state.post_id} updatePost={(e) => this.handleUpdate(this.state.post_id, e)}/>} />
-            <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => (this.loginUser(event))} />} />
+            <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => (this.loginUser(event))} error={this.state.logInError} />} />
           </DreamDogsProvider>
           <Route exact path='/editProfile' component={UpdateUser} />
           <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />

@@ -9,6 +9,9 @@ function SignUpForm(props) {
         </header>
         <form className='signup_form' id='signup_form' onSubmit={props.addUser}>
             <div>
+              {props.error ? <p>{props.error}</p> : <></>}
+            </div>
+            <div>
               <label htmlFor="first_name">First name:</label>
               <input placeholder='First Name' type="text" name='first_name' id='first-name' required/>
             </div>

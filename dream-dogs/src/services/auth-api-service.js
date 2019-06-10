@@ -28,10 +28,10 @@ const AuthApiService = {
         body: JSON.stringify(user),
       })
         .then(res => {
-            if (res.ok){
+            if (res.ok) {
                 return res.json()
             } else {
-                res.json().then(e => Promise.reject(e))
+                return  res.json().then(error => error)
             }
         })
     },

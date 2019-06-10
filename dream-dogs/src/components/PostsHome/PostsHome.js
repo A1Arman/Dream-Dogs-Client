@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 function PostsHome(props) {
     return (
@@ -11,7 +12,7 @@ function PostsHome(props) {
                     <section key={post.id}>
                         <h4>{post.dog_name}</h4>
                         <p>Owner Email: {post.email}</p>
-                        <p>Birthdate: {post.birthdate}</p>
+                        <p>Birthdate: {moment(post.birthdate).format("MM-DD-YYYY")}</p>
                         <p>Breed: {post.breed}</p>
                         <p>Lifestyle: {post.lifestyle}</p>
                     </section>

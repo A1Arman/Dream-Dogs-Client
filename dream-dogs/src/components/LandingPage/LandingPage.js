@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Spotlight from '../Spotlight/Spotlight';
 import SignUpForm from '../LandingPageForm/SignUpForm';
 import './LandingPage.css';
-import TokenService from '../../services/token-service';
 
 function LandingPage(props) {
         return (
@@ -23,13 +22,7 @@ function LandingPage(props) {
                 {props.posts.length > 0 &&
                     <Spotlight />
                 }
-                {!TokenService.hasAuthToken() ?
-                    <SignUpForm addUser={props.addUser}/> :
-                    <section>
-                    <h3>Welcome back!</h3>
-                    </section>    
-                }
-                
+                <SignUpForm addUser={props.addUser} error={props.signUpError}/>  
             </main>
             </>
     )
