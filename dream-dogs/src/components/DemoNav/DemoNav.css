@@ -1,4 +1,4 @@
-nav {
+/* nav {
     position: fixed;
     width: 95%;
     height: auto !important;
@@ -49,4 +49,22 @@ ul {
 
   #title a:hover {
     background-color: rgb(109, 199, 230);
+  } */
+  br {
+      display: block;
+  }
+  .menu-item {
+      color: white;
+      text-decoration: none;
+  }
+
+  img {
+      width: 2rem;
+      margin-top: 2.15rem;
+  }
+
+  .menu-item:hover {
+      background-color: white;
+      color: black;
+      border-radius: 0.25rem;
   }

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu';
 
 function LoggedInNav(props) {
     return (
-        <>
-            <li><Link to='/addPost'>Create a post</Link></li>
-            <li><Link to='/myPost'>My posts</Link></li>
-            <li><Link to='/profile'>Profile</Link></li>
-            <li onClick={props.handleLogout}><Link to='/posts'>Log Out</Link></li> 
-        </>
-    )
+        <Menu>
+          <Link to='/addPost' className="menu-item">Create Post</Link><br className='bm-item' />
+          <Link to='/myPost' className="menu-item">My Post</Link><br className='bm-item' />
+          <Link to='/profile' className="menu-item">Profile</Link><br className='bm-item' />
+          <Link to='/posts' className="menu-item" onClick={props.handleLogout}>Log out</Link>
+        </Menu>
+      );
 }
 
 export default LoggedInNav;

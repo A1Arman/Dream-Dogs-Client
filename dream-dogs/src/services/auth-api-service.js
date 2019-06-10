@@ -31,7 +31,8 @@ const AuthApiService = {
             if (res.ok) {
                 return res.json()
             } else {
-                return  res.json().then(error => error)
+                // return  res.json().then(error => error)
+                alert('somehting')
             }
         })
     },

@@ -139,14 +139,23 @@ class App extends Component {
       alert('Password fields do not match')
     }
 
-    AuthApiService.postUser(user)
+    return fetch(`${API_BASE_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+      })
+      .then(res => {
+        return res.json()
+      })
       .then(user => {
-        if (user) {
+        if (user.ok) {
           const form = document.getElementById('signup_form');
           form.reset();
         } else {
-          this.setState({signUpError: user.error})
-        }  
+          this.setState({signUpError: user.json()})
+        }
       })
       .catch(error => {
         this.setState({signupError: error})
@@ -212,8 +221,7 @@ class App extends Component {
             login_password.value = ''
             TokenService.saveAuthToken(res.authToken);
             this.setState({loggedIn: true});
-            this.getPost();
-            window.location.href ='/posts'
+            window.location.href = '/posts'
       })
       .catch(err => {
         this.setState({logInError: err})
@@ -278,7 +286,7 @@ class App extends Component {
           <Route exact path='/login' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
           <Route exact path='/profile' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
           <Route exact path='/editProfile' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
-          <Route exact path='/addPost' component={AddPostNav}/>
+          <Route exact path='/addPost' render={(props) => <AddPostNav {...props} handleLogout={this.handleLogout}/>}/>
         </header>
         <>
           <DreamDogsProvider value={contextVal}>

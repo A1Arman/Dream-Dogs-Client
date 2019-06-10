@@ -1,8 +1,6 @@
 * {
-    padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     font-size: 20px;
@@ -12,7 +10,6 @@ body {
   }
   
   header {
-    padding: 45px 15px;
     backface-visibility: hidden;
   }
   
@@ -49,7 +46,7 @@ body {
 
   .landing-header {
     height: 75vh;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem;
     background-image: linear-gradient(
         to right bottom, 
         rgba(6, 181, 250, 0.8), 

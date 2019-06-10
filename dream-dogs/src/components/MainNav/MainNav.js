@@ -16,12 +16,14 @@ function MainNav() {
     //     // </nav>
     // )
     return (
-        <Menu>
-          <a id="home" className="menu-item" href="/">Home</a>
-          <a id="about" className="menu-item" href="/about">About</a>
-          <a id="contact" className="menu-item" href="/contact">Contact</a>
-          <a className="menu-item--small" href="">Settings</a>
-        </Menu>
+        <>
+            <Link to='/'><img src={logo} alt='dream dogs icon/logo'/></Link>
+            <Menu>
+                <Link to='/' id="home" className="menu-item">Home</Link><br />
+                <Link id="about" className="menu-item" to='/posts'>Demo</Link><br />
+                <Link id="contact" className="menu-item" to='#signup_form'>Sign Up</Link>
+            </Menu>
+        </>   
       );
 }
 

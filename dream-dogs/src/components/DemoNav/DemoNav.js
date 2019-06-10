@@ -2,23 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import LoggedInNav from '../LoggedInNav/LoggedInNav';
+import { slide as Menu } from 'react-burger-menu';
 import logo from '../../images/dog.svg';
 import './DemoNav.css';
 
 function DemoNav(props) {
     return (
-        <nav role="navigation">
-            <ul>
-                <li id='title'><Link to='/'>Dream Dogs</Link></li>
-                <li id='icon' ><Link to='/posts' className='icon'><img src={logo} alt='dream dogs icon/logo'/></Link></li>
-                {TokenService.hasAuthToken() ? 
-                    <LoggedInNav handleLogout={props.handleLogout}/>
-                    : 
-                    <li><Link to='/login'>Log in</Link></li>
-                }
-            </ul>            
-        </nav>
-    )
+        <>
+            <Link to='/'><img src={logo} alt='dream dogs icon/logo'/></Link>
+        <>
+            {TokenService.hasAuthToken() ?
+                <LoggedInNav handleLogout={props.handleLogout} /> 
+                :
+                <Menu><Link to='/login' className="menu-item">Log In</Link></Menu>
+            }
+        </>
+        </>
+      );
 }
 
 export default DemoNav;
