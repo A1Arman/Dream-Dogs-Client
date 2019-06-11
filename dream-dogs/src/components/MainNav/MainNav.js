@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import './MainNav.css';
 import logo from '../../images/dog.svg';
+import paw from '../../images/paw-solid.svg'
 
 function MainNav() {
     return (
