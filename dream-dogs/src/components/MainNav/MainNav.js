@@ -8,11 +8,11 @@ import paw from '../../images/paw-solid.svg'
 function MainNav() {
     return (
         <>
-            <Link to='/'><img src={logo} alt='dream dogs icon/logo'/></Link>
+            <Link to='/' className='nav-title'><img className='icon' src={logo} alt='dream dogs icon/logo'></img><span className='title'>Dream Dogs</span></Link>
             <Menu>
                 <Link to='/' id="home" className="menu-item">Home</Link><br />
-                <Link id="about" className="menu-item" to='/posts'>Demo</Link><br />
-                <Link id="contact" className="menu-item" to='#signup_form'>Sign Up</Link>
+                <Link id="demo" className="menu-item" to='/posts'>Demo</Link><br />
+                <Link id="signup" className="menu-item" to='/signup'>Sign Up</Link>
             </Menu>
         </>   
       );

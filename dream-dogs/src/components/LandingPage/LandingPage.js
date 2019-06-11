@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Spotlight from '../Spotlight/Spotlight';
-import SignUpForm from '../LandingPageForm/SignUpForm';
 import './LandingPage.css';
 
 function LandingPage(props) {
@@ -22,7 +21,6 @@ function LandingPage(props) {
                 {props.posts.length > 0 &&
                     <Spotlight />
                 }
-                <SignUpForm addUser={props.addUser} error={props.signUpError}/>  
             </main>
             </>
     )

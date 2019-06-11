@@ -1,56 +1,4 @@
-/* nav {
-    position: fixed;
-    width: 95%;
-    height: auto !important;
-    padding: 5px 0;
-    z-index: 10;
-    top: 0;
-    margin-block-end: 0 !important;
-}
-
-ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-  }
-  
-  li {
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  
-  li a {
-    display: block;
-    color: #111;
-    padding: 10px 10px;
-    text-decoration: none;
-    background: white;
-    border-radius: 5px;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-  }
-  
-  li a:hover {
-    background-color: rgb(106, 199, 230);
-  }
-
-  #icon {
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1.75rem;
-  }
-
-  .icon {
-      padding: 0;
-  }
-
-  #title {
-    float: left;
-  }
-
-  #title a:hover {
-    background-color: rgb(109, 199, 230);
-  } */
-  br {
+ br {
       display: block;
   }
   .menu-item {
@@ -80,3 +28,21 @@ ul {
         color: #d7efea;
         border-radius: 0.5rem;
     }
+
+    .nav-title {
+        text-decoration: none;
+      }
+      
+      span.title {
+        color: #c4f39f;
+        position: relative;
+        bottom: 0.375rem;
+        text-decoration: none;
+        font-size: 2rem;
+      }
+      
+      .icon {
+        width: 2rem;
+        height: 2rem;
+        position: relative;
+      }

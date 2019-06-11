@@ -15,6 +15,7 @@ import UpdatePost from './components/UpdatePost/UpdatePost';
 import Profile from './components/Profile/Profile';
 import UpdateUser from './components/UpdateUser/UpdateUser';
 import AuthApiService from './services/auth-api-service';
+import SignUpForm from './components/LandingPageForm/SignUpForm';
 
 const {API_BASE_URL} = config
 
@@ -121,45 +122,6 @@ class App extends Component {
         alert(`something went wrong: ${error.message}`)
       })
 
-  }
-
-  handleUserSubmit = e => {
-    e.preventDefault();
-
-    const confirmedPass = e.target.confirm.value;
-
-    const user = {
-      first_name: e.target.first_name.value,
-      last_name: e.target.last_name.value,
-      email: e.target.email.value,
-      password: e.target.password.value
-    }
-
-    if (!confirmedPass === user.password) {
-      alert('Password fields do not match')
-    }
-
-    return fetch(`${API_BASE_URL}/users`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(user),
-      })
-      .then(res => {
-        return res.json()
-      })
-      .then(user => {
-        if (user.ok) {
-          const form = document.getElementById('signup_form');
-          form.reset();
-        } else {
-          this.setState({signUpError: user.json()})
-        }
-      })
-      .catch(error => {
-        this.setState({signupError: error})
-      })
   }
 
   handleDeletePost = post_id => {
@@ -286,6 +248,7 @@ class App extends Component {
           <Route exact path='/login' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
           <Route exact path='/profile' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
           <Route exact path='/editProfile' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
+          <Route exact path='/signup' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
           <Route exact path='/addPost' render={(props) => <AddPostNav {...props} handleLogout={this.handleLogout}/>}/>
         </header>
         <>
@@ -299,6 +262,7 @@ class App extends Component {
           <Route exact path='/posts' render={(props) => <PostsHome {...props} posts={this.state.posts}/>} />
           <Route exact path='/addPost' render={(props) => <Post {...props} addPost={(event) => this.handleSubmit(event)} />}/>
           <Route exact path='/profile' render={(props) => <Profile {...props} deleteUser={(user_id) => this.handleDeleteUser(user_id)} />} />
+          <Route exact path='/signup' component={SignUpForm} />
         </>
       </div>
     );

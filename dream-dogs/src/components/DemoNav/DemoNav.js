@@ -9,12 +9,15 @@ import './DemoNav.css';
 function DemoNav(props) {
     return (
         <>
-            <Link to='/'><img src={logo} alt='dream dogs icon/logo'/></Link>
+            <Link to='/' className='nav-title'><img className='icon' src={logo} alt='dream dogs icon/logo'></img><span className='title'>Dream Dogs</span></Link>
         <>
             {TokenService.hasAuthToken() ?
                 <LoggedInNav handleLogout={props.handleLogout} /> 
                 :
-                <Menu><Link to='/login' className="menu-item">Log In</Link></Menu>
+                <Menu>
+                    <Link to='/login' className="menu-item">Log In</Link><br />
+                    <Link to='/signup' className="menu-item">Sign Up</Link>
+                </Menu>
             }
         </>
         </>
