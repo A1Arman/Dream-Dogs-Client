@@ -30,6 +30,7 @@ a.email:hover {
     border-radius: 5px;
     width: 22.5rem;
     margin-top: 0.5rem;
+    max-height: 471.5px;
 }
   
 .card:hover {
