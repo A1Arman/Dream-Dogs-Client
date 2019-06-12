@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import ValidationError from '../ValidationError/ValidationError'
+import ValidationError from '../ValidationError/ValidationError';
+import config from '../../config';
 import './SignUpForm.css';
+
+const { API_BASE_URL } = config
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -30,18 +33,14 @@ class SignUpForm extends Component {
   handleUserSubmit = e => {
     e.preventDefault();
 
-    const confirmedPass = e.target.confirm.value;
-
     const user = {
-      first_name: e.target.first_name.value,
-      last_name: e.target.last_name.value,
-      email: e.target.email.value,
-      password: e.target.password.value
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      email: this.state.email,
+      password: this.state.password
     }
 
-    if (!confirmedPass === user.password) {
-      alert('Password fields do not match')
-    }
+    console.log(user)
 
     fetch(`http://localhost:8000/api/users`, {
       method: 'POST',
@@ -54,10 +53,9 @@ class SignUpForm extends Component {
           return res.json()
       })
       .then(user => {
-        if (!user.error) {
           const form = document.getElementById('signup_form');
-          form.reset();
-        } 
+          form.reset(); 
+          window.location.href = '/login'  
       })
       .catch(error => {
         this.setState({signupError: error})
@@ -209,7 +207,7 @@ class SignUpForm extends Component {
       <header>
           <h3 className='signup-title'>Find Your Dream Dog Today</h3>
       </header>
-      <form className='signup_form' id='signup_form' onSubmit={this.addUser}>
+      <form className='signup_form' id='signup_form' onSubmit={(event) => this.handleUserSubmit(event)}>
           <div>
             <label htmlFor="first_name">First name:</label>
             <input placeholder='First Name' type="text" name='first_name' id='first-name' onChange={e => this.updateFirstName(e.target.value)} required/>

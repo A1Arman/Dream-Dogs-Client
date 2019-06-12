@@ -27,11 +27,19 @@ body {
 
   h1#landing-title {
     padding-top: 10rem;
-    color: #3629cc;
+    color: #fbfbfb;
   }
 
   h2#phrase {
-    color: #3629cc;
+    color: #fbfbfb;
+  }
+
+  h1, h2, h2, h4 {
+    font-family: 'IBM Plex Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  h2 {
+    font: 'IBM Plex Sans';
   }
 
   h3 {
@@ -59,8 +67,8 @@ body {
     margin-top: 1.5rem;
     background-image: linear-gradient(
         to right bottom, 
-        rgba(181,240,250, 0.6), 
-        rgba(14, 172, 225, 0.6)),
+        rgba(139, 179, 249, 0.712), 
+        rgba(139, 189, 235, 0.712)),
         url('../../images/photo-1553531384-411a247ccd73.jpg');
     background-size: cover;
     background-position: left;

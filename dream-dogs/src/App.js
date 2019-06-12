@@ -16,6 +16,7 @@ import Profile from './components/Profile/Profile';
 import UpdateUser from './components/UpdateUser/UpdateUser';
 import AuthApiService from './services/auth-api-service';
 import SignUpForm from './components/LandingPageForm/SignUpForm';
+import Footer from './components/Footer/Footer';
 
 const {API_BASE_URL} = config
 
@@ -263,6 +264,9 @@ class App extends Component {
           <Route exact path='/addPost' render={(props) => <Post {...props} addPost={(event) => this.handleSubmit(event)} />}/>
           <Route exact path='/profile' render={(props) => <Profile {...props} deleteUser={(user_id) => this.handleDeleteUser(user_id)} />} />
           <Route exact path='/signup' component={SignUpForm} />
+        </>
+        <>
+          <Route exact path='/' component={Footer} />
         </>
       </div>
     );
