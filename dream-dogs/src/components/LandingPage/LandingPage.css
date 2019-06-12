@@ -4,6 +4,7 @@
 }
 
 body {
+    
     font-size: 20px;
     background-color: #004690;
     color: #d7efea;
@@ -17,12 +18,12 @@ body {
   
   section {
     min-height: 200px;
-    padding: 30px 15px;
+    padding: 25px 10px;
   }
   
   p {
     margin: 0 auto;
-    max-width: 650px;
+    max-width: 95%;
   }
 
   h1#landing-title {
@@ -60,6 +61,10 @@ body {
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-in;
+  }
+
+  .landing-main {
+    overflow: hidden;
   }
 
   .landing-header {

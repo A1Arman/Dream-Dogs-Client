@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import config from '../../config';
 import TokenService from '../../services/token-service';
 import './MyPost.css';
@@ -42,29 +43,33 @@ class MyPost extends Component {
     render() {
         return (
             <>
-            <main>
+            <main className='flex-container'>
                 <header role="banner">
                     <h1>My Posts</h1>
                 </header>
-                {this.state.posts.map(post => {
-                    return (
-                        <section key={post.id}>
-                            <h4>{post.dog_name}</h4>
-                            <p>Owner Email: {post.email}</p>
-                            <p>Birthdate: {post.birthdate}</p>
-                            <p>Breed: {post.breed}</p>
-                            <p>Lifestyle: {post.lifestyle}</p>
-                            <button className='deletePostBtn' onClick={() => (
-                                this.props.handleDeletePost(post.id, this.handleDeletePost),
-                                this.setState({posts: this.state.posts.filter(posts => posts.id !== post.id)})
-                            )       
-                            }>Delete</button>
-                            <Link to='/edit'><button className='updateBtn' onClick={() => {
-                                this.props.setId(post.id)
-                            }}>Update</button></Link>
-                        </section>
-                    )
-                })}
+                <section className='myPost-grid'>
+                  {this.state.posts.map(post => {
+                      return (
+                          <section key={post.id} className='myPost-container'>
+                              <h4 className='dog_name'>{post.dog_name}</h4>
+                              <section className='container'>
+                                <p>Owner Email:  <a href={`mailto:${post.email}?subject=Interested in ${post.dog_name}!`} className='email'>{post.email}</a></p>
+                                <p>Birthdate: {moment(post.birthdate).format("MM-DD-YYYY")}</p>
+                                <p>Breed: {post.breed}</p>
+                                <p>Lifestyle: {post.lifestyle}</p>
+                              </section>
+                              <button className='deletePostBtn' onClick={() => (
+                                  this.props.handleDeletePost(post.id, this.handleDeletePost),
+                                  this.setState({posts: this.state.posts.filter(posts => posts.id !== post.id)})
+                              )       
+                              }>Delete</button>
+                              <Link to='/edit'><button className='update-btn' onClick={() => {
+                                  this.props.setId(post.id)
+                              }}>Update</button></Link>
+                          </section>
+                      )
+                  })}
+                </section>
             </main>
             </>
         )

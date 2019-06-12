@@ -3,8 +3,6 @@ import { DreamDogsConsumer } from '../../DreamDogsContext';
 import moment from 'moment';
 import './Spotlight.css';
 
-
-
 function Spotlight() {
     return (
         <DreamDogsConsumer>

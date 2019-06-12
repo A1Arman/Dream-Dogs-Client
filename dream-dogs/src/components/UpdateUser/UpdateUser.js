@@ -72,7 +72,7 @@ class UpdateUser extends Component {
     render() {
         if (this.state.users) {
             return (
-                <main>
+                <main className='flex-container'>
                     <header>
                         <h1 className='update-user-title'>Update User</h1>
                     </header>

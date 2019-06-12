@@ -203,38 +203,40 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <section>
+      <section className='flex-container'>
       <header>
           <h3 className='signup-title'>Find Your Dream Dog Today</h3>
       </header>
-      <form className='signup_form' id='signup_form' onSubmit={(event) => this.handleUserSubmit(event)}>
-          <div>
-            <label htmlFor="first_name">First name:</label>
-            <input placeholder='First Name' type="text" name='first_name' id='first-name' onChange={e => this.updateFirstName(e.target.value)} required/>
-            <ValidationError hasError={!this.state.firstNameValid} message={this.state.validationMessages.name}/>  
-          </div>
-          <div>
-            <label htmlFor="last_name">Last name:</label>
-            <input type="text" name='last_name' id='last-name' placeholder='Last Name' onChange={e => this.updateLastName(e.target.value)} required/>
-            <ValidationError hasError={!this.state.lastNameValid} message={this.state.validationMessages.name}/> 
-          </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input type="email" name='email' id='email' onChange={e => this.updateEmail(e.target.value)} required/>
-            <ValidationError hasError={!this.state.emailValid} message={this.state.validationMessages.email} />
-          </div>
-          <div>
-            <label htmlFor='password'>Password (8 characters minimum):</label>
-            <input type='password' name='password' id='password' minLength='8' onChange={e => this.updatePassword(e.target.value)} required/>
-            <ValidationError hasError={!this.state.passwordValid} message={this.state.validationMessages.password}/>
-          </div>
-          <div>
-            <label htmlFor='confirm'>Confirm Password:</label>
-            <input type='password' name='confirm' id='confirm' minLength='8'onChange={e => this.updateRepeatPassword(e.target.value)} required/>
-            <ValidationError hasError={!this.state.passwordMatch} message={this.state.validationMessages.repeatPassword}/>
-          </div>
-          <button className='sub-btn' type='submit' disabled={!this.state.formValid}>Sign Up</button>
-      </form>
+      <section className='form-container'>
+        <form className='signup_form' id='signup_form' onSubmit={(event) => this.handleUserSubmit(event)}>
+            <div>
+              <label htmlFor="first_name">First name:</label>
+              <input placeholder='First Name' type="text" name='first_name' id='first-name'  onChange={e => this.updateFirstName(e.target.value)} required/>
+              <ValidationError hasError={!this.state.firstNameValid} message={this.state.validationMessages.name}/>  
+            </div>
+            <div>
+              <label htmlFor="last_name">Last name:</label>
+              <input type="text" name='last_name' id='last-name' placeholder='Last Name' onChange={e => this.updateLastName(e.target.value)} required/>
+              <ValidationError hasError={!this.state.lastNameValid} message={this.state.validationMessages.name}/> 
+            </div>
+            <div>
+              <label htmlFor="email">Email:</label>
+              <input type="email" name='email' id='email' onChange={e => this.updateEmail(e.target.value)} required/>
+              <ValidationError hasError={!this.state.emailValid} message={this.state.validationMessages.email} />
+            </div>
+            <div>
+              <label htmlFor='password'>Password (8 characters minimum):</label>
+              <input type='password' name='password' id='password' minLength='8' onChange={e => this.updatePassword(e.target.value)} required/>
+              <ValidationError hasError={!this.state.passwordValid} message={this.state.validationMessages.password}/>
+            </div>
+            <div>
+              <label htmlFor='confirm'>Confirm Password:</label>
+              <input type='password' name='confirm' id='confirm' minLength='8'onChange={e => this.updateRepeatPassword(e.target.value)} required/>
+              <ValidationError hasError={!this.state.passwordMatch} message={this.state.validationMessages.repeatPassword}/>
+            </div>
+            <button className='sub-btn' type='submit' disabled={!this.state.formValid}>Sign Up</button>
+        </form>
+    </section>
     </section>   
   )
   } 

@@ -91,7 +91,6 @@ class App extends Component {
     e.preventDefault();
     const post = {
       dog_name: e.target.dog_name.value,
-      email: e.target.owner_email.value,
       birthdate: e.target.dog_bday.value,
       breed: e.target.breed.value,
       lifestyle: e.target.lifestyle.value

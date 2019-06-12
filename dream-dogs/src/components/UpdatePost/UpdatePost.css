@@ -1,11 +1,22 @@
-main {
-    padding-top: 1rem;
+.update-post-section {
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 22.5rem;
+    margin-top: 0.5rem;
+    background-color: rgba(202,244,241, 0.2);
+    width: 30rem;
 }
+
+.update-post-section:hover {
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.151);
+}
+
 
 .sub-btn,
 .res-btn {
     background-color: #fff;
-    color: #777;
+    font-weight: bold;
+    text-decoration: none;
     margin-top: 15px;
     padding: 7.5px 20px;
     text-transform: uppercase;
@@ -18,7 +29,6 @@ main {
 .sub-btn:hover, .res-btn:hover {
     cursor: pointer;
     transform: translateY(-2.5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,.3);
 }
 
 .sub-btn:active, .res-btn:hover {
@@ -44,7 +54,6 @@ main {
 
 .update-post-form input:focus {
     outline: none;
-    background: rgb(186, 229, 243);
     border-color: rgb(4, 127, 168);
 }
 
@@ -68,11 +77,6 @@ main {
 
 }
 
-.signup_form :invalid {
-    border-color: red;
-    background: #faacac;
-}
-
 
 @media only screen and (min-width: 40rem) {
     .signup_form {
@@ -81,3 +85,8 @@ main {
     }
 }
 
+@media only screen and (min-width: 782px) {
+    .update-post-section {
+        width: 40rem;
+    }
+}

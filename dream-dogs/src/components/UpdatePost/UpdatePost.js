@@ -5,7 +5,7 @@ function UpdatePost(props) {
     const post = props.posts.filter(post => post.id === props.postId)
     if (post) {
         return (
-            <main>
+            <main className='flex-container'>
                 <header>
                     <h1 className='update-post-title'>Update Post</h1>
                 </header>
