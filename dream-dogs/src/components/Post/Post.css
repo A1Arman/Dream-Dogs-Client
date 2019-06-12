@@ -12,7 +12,7 @@
     width: 22.5rem;
     margin-top: 0.5rem;
     background-color: rgba(202,244,241, 0.2);
-    width: 30rem;
+    width: 25rem;
 }
 
 .post-form-section:hover {
@@ -110,7 +110,7 @@ textarea {
 @media only screen and (min-width: 40rem) {
     .post-form {
         margin: auto;
-        width: 25rem;
+        width: 20rem;
     }
 }
 
