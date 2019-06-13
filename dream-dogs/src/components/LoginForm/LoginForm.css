@@ -16,6 +16,9 @@ h2.login-title {
     margin-top: 0.5rem;
     background-color: rgba(202,244,241, 0.2);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .login_form-container:hover {
@@ -24,12 +27,12 @@ h2.login-title {
 
 .login_form label, .login_form input {
     display: block;
-    width: 100%;
     text-align: start;
     margin-top: 0.5rem;
 }
 
 .login_form input {
+    width: 20rem;
     border: 1px solid #ccc;
     padding: 0.2rem 0.5rem;
     font: inherit;
@@ -61,4 +64,13 @@ h2.login-title {
         width: 35rem;
     }
 }
+
+
+@media only screen and (min-width: 782px) {
+    .login_form-container {
+       width: 40rem;
+    }
+}
+
+
 
