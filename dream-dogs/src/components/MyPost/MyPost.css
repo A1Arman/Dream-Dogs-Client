@@ -12,6 +12,10 @@
 }
 
 
+.container {
+    max-height: 379.5px;
+}
+
 .deletePostBtn,
 .update-btn {
     background-color: #fff;
@@ -60,6 +64,6 @@
       grid-template-columns: auto auto auto;
       justify-content: space-evenly;
       overflow: hidden;
-      grid-template-areas: 'myArea myArea';
+      grid-template-areas: 'myArea myArea myArea';
   }
 }
