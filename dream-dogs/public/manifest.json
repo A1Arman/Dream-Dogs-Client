@@ -1,6 +1,6 @@
 {
   "short_name": "Dream Dogs",
-  "manifest version": 1,
+  "manifest_version": 1,
   "version": "one",
   "name": "Dream Dogs App",
   "icons": [
