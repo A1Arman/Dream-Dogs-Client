@@ -40,9 +40,7 @@ class SignUpForm extends Component {
       password: this.state.password
     }
 
-    console.log(user)
-
-    fetch(`http://localhost:8000/api/users`, {
+    fetch(`${API_BASE_URL}/api/users`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

@@ -267,10 +267,12 @@ class App extends Component {
           <Route exact path='/addPost' render={(props) => <AddPostNav {...props} handleLogout={this.handleLogout}/>}/>
         </header>
         <>
+        <DreamDogsProvider value={contextVal}>
+          <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)} signupError={this.state.signUpError} />} />
+        </DreamDogsProvider>
           {this.state.loading ? <Route path='/' render={(props) => <Loader {...props} />} /> : (
             <>
-              <DreamDogsProvider value={contextVal}>
-                <Route exact path='/' render={(props) => <LandingPage {...props}  posts={this.state.posts} addUser={(event) => this.handleUserSubmit(event)} signupError={this.state.signUpError} />} />
+              <DreamDogsProvider>
                 <Route exact path='/myPost' render={(props) => <MyPost {...props} setId={(post_id) => this.setPostId(post_id)} handleDeletePost={post_id => this.handleDeletePost(post_id)} />} />
                 <Route exact path='/edit' render={(props) => <UpdatePost {...props} posts={this.state.posts} postId={this.state.post_id} updatePost={(e) => this.handleUpdate(this.state.post_id, e)}/>} />
                 <Route exact path='/login' render={(props) => <LoginForm {...props} loginUser={(event) => (this.loginUser(event))} error={this.state.logInError} />} />

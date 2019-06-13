@@ -8,7 +8,6 @@ function AddPostNav(props) {
     return (
         <>
             <Link to='/' className='nav-title'><img className='icon' src={logo} alt='dream dogs icon/logo'></img><span className='title'>Dream Dogs</span></Link>
-        
         <>
             <Menu>
                 <Link to='/posts' className='menu-item'>Posts</Link><br />

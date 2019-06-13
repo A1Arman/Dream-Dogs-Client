@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import SignUpForm from './SignUpForm';
+import Spotlight from './Spotlight';
 
-describe(`SignUpForm component`, () => {
+describe(`Spotlight component`, () => {
     it('renders without crashing', () => {
-        const wrapper = shallow(<SignUpForm />);
+        const wrapper = shallow(<Spotlight />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });
