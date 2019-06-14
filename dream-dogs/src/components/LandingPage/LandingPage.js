@@ -10,7 +10,7 @@ function LandingPage(props) {
                 <header role="banner" className='landing-header'>
                     <h1 id="landing-title">Dream Dogs</h1>
                     <h2 id="phrase">Find Your Dream Dog.</h2>
-                    <Link to='/posts'><button className='btn'>Demo App</button></Link>
+                    <Link to='/signup'><button className='btn'>Sign Up Today!</button></Link>
                 </header>
                 <section className='desc-section'>
                     <header>

@@ -11,7 +11,8 @@ function MainNav() {
             <Menu>
                 <Link to='/' id="home" className="menu-item">Home</Link><br />
                 <Link id="demo" className="menu-item" to='/posts'>Demo</Link><br />
-                <Link id="signup" className="menu-item" to='/signup'>Sign Up</Link>
+                <Link id="signup" className="menu-item" to='/signup'>Sign Up</Link><br />
+                <Link id="login" className="menu-item" to='/login'>Log In</Link> 
             </Menu>
         </>   
       );
