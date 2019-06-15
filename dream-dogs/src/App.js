@@ -43,7 +43,7 @@ class App extends Component {
       }
     };
 
-    fetch(`${API_BASE_URL}/posts`, options)
+    fetch(`https://desolate-castle-38845.herokuapp.com/api/posts`, options)
       .then(res => {
         if(res.ok) {
           return res.text();
