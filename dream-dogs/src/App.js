@@ -6,6 +6,7 @@ import PostsHome from './components/PostsHome/PostsHome';
 import DemoNav from './components/DemoNav/DemoNav';
 import Post from './components/Post/Post'
 import AddPostNav from './components/AddPostNav/AddPostNav';
+import config from './config';
 import {DreamDogsProvider} from './DreamDogsContext';
 import MyPost from './components/MyPost/MyPost';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -18,6 +19,8 @@ import SignUpForm from './components/LandingPageForm/SignUpForm';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 
+const {API_BASE_URL} = config;
+console.log(API_BASE_URL)
 class App extends Component {
   constructor(props) {
     super(props);
