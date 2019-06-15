@@ -19,9 +19,8 @@ import SignUpForm from './components/LandingPageForm/SignUpForm';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 
-require('dotenv').config()
-
-console.log({API_BASE_URL})
+const {API_BASE_URL} = config;
+console.log(API_BASE_URL)
 class App extends Component {
   constructor(props) {
     super(props);
