@@ -46,7 +46,7 @@ class App extends Component {
     fetch(`${API_BASE_URL}/posts`, options)
       .then(res => {
         if(res.ok) {
-          console.log(res);
+          console.log(res.json());
         }
         else {
           throw new Error('Something went wrong');
