@@ -46,14 +46,13 @@ class App extends Component {
     fetch(`https://desolate-castle-38845.herokuapp.com/api/posts`, options)
       .then(res => {
         if(res.ok) {
-          return res.text();
+          return res.json();
         }
         else {
           throw new Error('Something went wrong');
         }
       })
       .then(data => {
-        console.log(data)
         this.setState({loading: false})
         this.setState({posts: data})
       })
