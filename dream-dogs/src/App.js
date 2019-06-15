@@ -46,13 +46,14 @@ class App extends Component {
     fetch(`${API_BASE_URL}/posts`, options)
       .then(res => {
         if(res.ok) {
-          console.log(res.text());
+          return res.text();
         }
         else {
           throw new Error('Something went wrong');
         }
       })
       .then(data => {
+        console.log(data)
         this.setState({loading: false})
         this.setState({posts: data})
       })
