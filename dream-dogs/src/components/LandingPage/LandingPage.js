@@ -18,12 +18,6 @@ function LandingPage(props) {
                     </header>
                     <p className='desc'>Dream Dogs helps owners struggling to provide for their dogs to find a safe new home. Owners can create posts and also include a description of the dog, and the lifestyle needs of the dog.</p>
                 </section>
-                <section>
-                    <h3>Dream Dogs Credentials</h3>
-                    <p>Email: armanibhimani@gmail.com</p>
-                    <p>Password: password</p>
-                </section>
-
                 {props.posts.length > 0 &&
                     <Spotlight />
                 }

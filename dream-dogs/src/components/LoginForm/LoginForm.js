@@ -19,6 +19,11 @@ function LoginForm(props) {
                         {props.error ? <h4>Incorrect Email or Password</h4> : <></>}
                     </section>     
                 </form>
+                <section>
+                    <h3>Dream Dogs Demo Credentials</h3>
+                    <p>Email: armanibhimani@gmail.com</p>
+                    <p>Password: password</p>
+                </section>
         </section>
     )
 }
