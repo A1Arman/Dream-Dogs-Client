@@ -59,8 +59,10 @@ class MyPost extends Component {
                                 <p>Lifestyle: {post.lifestyle}</p>
                               </section>
                               <button className='deletePostBtn' onClick={() => (
+                                  /* eslint-disable */
                                   this.props.handleDeletePost(post.id, this.handleDeletePost),
                                   this.setState({posts: this.state.posts.filter(posts => posts.id !== post.id)})
+                                  /* eslint-disable */
                               )       
                               }>Delete</button>
                               <Link to='/edit'><button className='update-btn' onClick={() => {
