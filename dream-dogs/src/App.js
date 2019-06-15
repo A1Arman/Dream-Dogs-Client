@@ -1,4 +1,3 @@
-require('dotenv').config()
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MainNav from './components/MainNav/MainNav';
@@ -19,6 +18,8 @@ import AuthApiService from './services/auth-api-service';
 import SignUpForm from './components/LandingPageForm/SignUpForm';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
+
+require('dotenv').config()
 
 console.log(API_BASE_URL)
 class App extends Component {
