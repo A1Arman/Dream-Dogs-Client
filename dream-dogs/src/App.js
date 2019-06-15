@@ -21,7 +21,7 @@ import Loader from './components/Loader/Loader';
 
 require('dotenv').config()
 
-console.log(API_BASE_URL)
+console.log({API_BASE_URL})
 class App extends Component {
   constructor(props) {
     super(props);
