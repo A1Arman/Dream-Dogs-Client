@@ -20,7 +20,7 @@ import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 
 const {API_BASE_URL} = config;
-console.log(API_BASE_URL)
+
 class App extends Component {
   constructor(props) {
     super(props);
