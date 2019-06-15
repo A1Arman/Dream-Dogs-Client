@@ -19,7 +19,7 @@ import SignUpForm from './components/LandingPageForm/SignUpForm';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 
-const {API_BASE_URL} = config
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 console.log(API_BASE_URL)
 class App extends Component {
   constructor(props) {
