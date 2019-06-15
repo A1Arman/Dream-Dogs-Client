@@ -111,7 +111,9 @@ class SignUpForm extends Component {
         fieldErrors.password = 'Password must be between 8 and 72 characters long';
         hasError = true;
       } else {
+        /* eslint-disable */
         if(!fieldValue.match(new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/))) {
+        /* eslint-disable */
           fieldErrors.password = 'Password must contain at least one number and one letter and one special character';
           hasError = true;
         } else {
@@ -137,7 +139,9 @@ class SignUpForm extends Component {
       fieldErrors.email = 'Email is required';
       hasError = true;
     } else {
+      /* eslint-disable */
       if (!fieldValue.match(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))) {
+      /* eslint-disable */
         fieldErrors.email = 'Invalid Email Address'
         hasError = true;
       } else {
