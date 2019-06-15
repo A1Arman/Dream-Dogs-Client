@@ -20,7 +20,7 @@ import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
 
 const {API_BASE_URL} = config
-
+console.log(API_BASE_URL)
 class App extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ class App extends Component {
       }
     };
 
-    fetch(`https://desolate-castle-38845.herokuapp.com/api/posts`, options)
+    fetch(`${API_BASE_URL}/posts`, options)
       .then(res => {
         if(res.ok) {
           return res.json();
