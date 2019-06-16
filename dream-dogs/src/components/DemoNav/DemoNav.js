@@ -11,6 +11,7 @@ function DemoNav(props) {
         <>
             <Link to='/' className='nav-title'><img className='icon' src={logo} alt='dream dogs icon/logo'></img><span className='title'>Dream Dogs</span></Link>
         <>
+        {/*Line 15-22 checks if the user is logged in */}
             {TokenService.hasAuthToken() ?
                 <LoggedInNav handleLogout={props.handleLogout} /> 
                 :
