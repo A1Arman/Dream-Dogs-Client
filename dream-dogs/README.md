@@ -6,6 +6,9 @@ Dream-Dogs helps owners struggling to provide for their dogs to find a safe new 
 
 We wanted an app for dog owners going through tough times that could find a new safe loving home for their dogs.
 
+## Demo
+- [Live Demo](https://a1arman-dream-dogs.now.sh/)
+
 ## Screenshots
 Landing Page:
 ![Image of Dream-Dogs Landing Page](https://github.com/A1Arman/Dream-Dogs-Client/blob/master/dream-dogs/src/screenshot-images/Capture.PNG)
@@ -57,6 +60,3 @@ Sign Up Page:
 - Update user profile
 - Delete logged in users dog posts
 - Delete logged in user profile
-
-## Demo
-- [Live Demo](https://a1arman-dream-dogs.now.sh/)
