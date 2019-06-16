@@ -255,7 +255,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Route exact path='/' component={MainNav} />
+          <Route exact path='/' render={(props) => <MainNav {...props}/>} handleLogout={this.handleLogout} loggedIn={this.state.loggedIn} />
           <Route exact path='/posts' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>}/> 
           <Route exact path='/myPost' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout} />} />
           <Route exact path='/edit' render={(props) => <DemoNav {...props} handleLogout={this.handleLogout}/>} />
