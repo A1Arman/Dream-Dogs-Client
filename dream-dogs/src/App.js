@@ -242,7 +242,6 @@ class App extends Component {
     this.setState({
       posts: [...this.state.posts, post]
     })
-    this.getPost();
   }
 
   setPostId = post_id => {
