@@ -7,7 +7,7 @@ Dream-Dogs helps owners struggling to provide for their dogs to find a safe new 
 We wanted an app for dog owners going through tough times that could find a new safe loving home for their dogs.
 
 ## Demo
-- [Live Demo](https://a1arman-dream-dogs.now.sh/)
+- [Live Demo](https://dream-dogs-client.herokuapp.com)
 
 ## Screenshots
 Landing Page:
